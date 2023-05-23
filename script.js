@@ -1,3 +1,5 @@
+    // var : javaScript에서 변수를 선언하는데 사용되는 키워드.
+    // 변수 선언.
     var allTextLines;
     var headers;
     var imageColumnIndex;
@@ -26,7 +28,7 @@
             showRandomImage();
         });
     });
-    
+
     function processData(allText) {
         allTextLines = allText.split(/\r\n|\n/);
         headers = allTextLines[0].split(',');
@@ -37,7 +39,7 @@
     }
 
     function showRandomImage() {
-        var randomIndex;
+        var randomIndex; 
         if (allTextLines.length <= 2) {
             randomIndex = 1;  // Handle case when there is only one restaurant
         } else {
