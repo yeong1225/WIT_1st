@@ -6,10 +6,11 @@
     var addressColumnIndex;
     var previousRandomIndex;
 
+    // 페이지를 이동하도록 해주는 함수
     function navigateToPage(url) {
         window.location.href = url;
       }
-
+    // csv 파일을 불러오는 코드.
     $(document).ready(function(){
         $.ajax({
             type: "GET",
@@ -20,12 +21,12 @@
                 showRandomImage();
             }
         });
-
+        // 랜덤 버튼을 누르면 랜덤 이미지를 보여주는 코드.
         $("#randomButton").click(function() {
             showRandomImage();
         });
     });
-
+    
     function processData(allText) {
         allTextLines = allText.split(/\r\n|\n/);
         headers = allTextLines[0].split(',');
