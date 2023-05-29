@@ -1,51 +1,73 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="indexcss.css">
+    <title>전대 맛집</title>
+    <link rel="stylesheet" type="text/css" href="new.css">
+    <script src="script.js"></script>
 </head>
 <body>
-    <h2>전대맛집</h2>
-    <div id="container">
-        <img src="sock.jpeg" alt="Image" id="image">
-        <div class="text-northwest" onclick="navigateToPage('1.html')">상대</div>
-        <div class="text-east" onclick="navigateToPage('2.html')">후문</div>
-        <!-- 선택한 html 페이지로 이동 -->
-    </div>      
+    <div class="seven">
+        <h1>전 대 맛 집</h1>
+    </div>
+    <div class="banner" id="floatingBanner"></div>
 
     <script>
-        // 이미지 로딩 완료 후 텍스트 위치 조정
-        window.addEventListener('load', function() {
-        adjustTextPositions();});
+        // 이미지 파일 경로 배열
+        var imageSources = [
+            "./img/치킨.jpg",
+            "./img/도넛.jpg",
+            "./img/튀김.jpg",
+            "./img/핫도그.jpg",
+            "./img/파스타.png",
+            "./img/돈까스.png",
+            "./img/초밥.png",
+            "./img/햄버거.jpg",
+            "./img/생선구이.png",
+            "./img/감자튀김.jpg",
+            "./img/샌드위치.png",
+            "./img/프레첼.png",
+            "./img/국.png",
+            "./img/피자.jpg",
+            "./img/콜라.jpg",
+            // 새로운 이미지 파일 추가
+            // 이미지 저작권 고려 x
+            // 적당한 이미지 파일 찾기 (도트/심야식당/일러스트)
+        ];
 
-        // 윈도우 크기 변경 시 텍스트 위치 재조정
-        window.addEventListener('resize', function() {
-        adjustTextPositions();});
+        var banner = document.getElementById("floatingBanner");
+        var northBtn = document.getElementById("northBtn");
+        var eastBtn = document.getElementById("eastBtn");
 
-        function adjustTextPositions() {
-            var container = document.getElementById('container');
-            var image = document.getElementById('image');
-            var textEast = document.querySelector('.text-east');
-            var textSouth = document.querySelector('.text-south');
-
-        // 이미지 높이와 너비 가져오기
-            var imageHeight = image.offsetHeight;
-            var imageWidth = image.offsetWidth;
-
-        // 텍스트 위치 조정
-            textEast.style.right = -50 + 'px'; // 오른쪽으로 50px 이동
-            textSouth.style.left = (imageWidth / 2) + 'px'; // 가운데로 이동
-
-        // 컨테이너 높이 조정
-            container.style.height = imageHeight + 'px';
-        }
-
-        function navigateToPage(url) {
-            window.location.href = url;
-        }
+        // 이미지 요소 동적 생성 및 추가
+        imageSources.forEach(function (src) {
+            var img = document.createElement("img");
+            img.src = src;
+            img.classList.add("food");
+            banner.appendChild(img);
+        });
     </script>
+
+    <div class="container">
+        <div class="content">
+            <div class="image">
+                <img src="./img/socks_n.jpg" alt="Center Image">
+            </div>
+            <div class="text">
+                <a href="1.html">
+                    <button class="button" id="northBtn"
+                        onclick="navigateToPage('1.html')">
+                        <p>상대</p>
+                    </button>
+                </a>
+                <a href="2.html">
+                    <button class="button" id="eastBtn"
+                        onclick="navigateToPage('123.html')">
+                        <p>후문</p>
+                </button>
+                </a>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>
