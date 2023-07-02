@@ -55,6 +55,11 @@ h1 {
     font-size: 16px;
 }
 
+.btn btn-success{
+    position: absolute;
+    left: 0;
+}
+
 .infoContainer {
     text-align: left;
     margin-right: 30px;
